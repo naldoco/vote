@@ -20,4 +20,4 @@ result vs = sort [(count v vs , v) | v <- rmdups vs]
 
 -- Alternative vote
 rmempty :: Eq a => [[a]] -> [[a]]
-rmempty = undefined
+rmempty = filter (/= [])
