@@ -10,4 +10,5 @@ count :: Eq a => a -> [a] -> Int    -- Candidate -> [Candidate] -> Int
 count x = length . filter (== x)
 
 rmdups :: Eq a => [a] -> [a]    -- [Candidate] -> [Candidate]
-rmdups = undefined
+rmdups []     = []
+rmdups (x:xs) = x : (rmdups $ filter (/= x) xs)
