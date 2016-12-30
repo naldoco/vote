@@ -27,3 +27,6 @@ elim x = map $ filter (/= x)
 
 rank :: Ord a => [[a]] -> [a]
 rank = map snd . result . map head
+
+winner' :: Ord a => [[a]] -> a
+winner' = undefined

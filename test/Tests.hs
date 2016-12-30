@@ -64,5 +64,9 @@ voteSuite =
         [ testCase ("rank "++(show ballots)++" -> "++(show ["Red","Blue","Green"])) $
             (rank ballots) @?= ["Red","Blue","Green"]
         ]
+    , testGroup "winner'"
+        [ testCase ("winner' "++(show ballots)++" -> "++(show "Green")) $
+            (winner' ballots) @?= "Green"
+        ]
     ]
 main = defaultMain voteSuite
