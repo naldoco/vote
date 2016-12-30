@@ -60,5 +60,9 @@ voteSuite =
         [ testCase ("elim "++(show red)++" "++(show ballots)++" -> "++(show ballots_wo_red)) $
             (elim red ballots) @?= ballots_wo_red
         ]
+    , testGroup "rank"
+        [ testCase ("rank "++(show ballots)++" -> "++(show ["Red","Blue","Green"])) $
+            (rank ballots) @?= ["Red","Blue","Green"]
+        ]
     ]
 main = defaultMain voteSuite
