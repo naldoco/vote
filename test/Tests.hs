@@ -25,5 +25,9 @@ voteSuite =
         [ testCase ("rmdups "++(show votes)++" -> "++(show ["Red","Blue","Green"])) $
             (rmdups votes) @?= ["Red","Blue","Green"]
         ]
+    , testGroup "result"
+        [ testCase ("result "++(show votes)++" -> "++(show [(1,"Green"),(2,"Red"),(3,"Blue")])) $
+            (result votes) @?= [(1, "Green"), (2, "Red"), (3, "Blue")]
+        ]
     ]
 main = defaultMain voteSuite

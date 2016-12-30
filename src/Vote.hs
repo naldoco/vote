@@ -1,5 +1,7 @@
 module Vote where
 
+import Data.List
+
 type Candidate = String
 
 -- First past the post
@@ -12,3 +14,6 @@ count x = length . filter (== x)
 rmdups :: Eq a => [a] -> [a]    -- [Candidate] -> [Candidate]
 rmdups []     = []
 rmdups (x:xs) = x : (rmdups $ filter (/= x) xs)
+
+result :: Ord a => [a] -> [(Int, a)]     -- [Candidate] -> [(Int, Candidate)]
+result = undefined
