@@ -7,6 +7,8 @@ import Vote
 
 votes :: [Candidate]
 votes = ["Red", "Blue", "Green", "Blue", "Blue", "Red"]
+blue :: Candidate
+blue = "Blue"
 
 voteSuite :: TestTree
 voteSuite =
@@ -14,6 +16,10 @@ voteSuite =
     [ testGroup "winner"
         [ testCase ("winner "++ (show votes) ++ " -> " ++ show "Blue") $
             (winner votes) @?= "Blue"
+        ]
+    , testGroup "count"
+        [ testCase ("count "++(show blue)++" "++(show votes)++" -> "++(show 3)) $
+            (count blue votes) @?= 3
         ]
     ]
 main = defaultMain voteSuite
