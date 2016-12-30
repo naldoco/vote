@@ -26,4 +26,4 @@ elim :: Eq a => a -> [[a]] -> [[a]]
 elim x = map $ filter (/= x)
 
 rank :: Ord a => [[a]] -> [a]
-rank = undefined
+rank = map snd . result . map head
