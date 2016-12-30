@@ -29,4 +29,6 @@ rank :: Ord a => [[a]] -> [a]
 rank = map snd . result . map head
 
 winner' :: Ord a => [[a]] -> a
-winner' = undefined
+winner' bs = case rank (rmempty bs) of
+               [c]    -> c
+               (c:cs) -> winner' (elim c bs)
