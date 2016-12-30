@@ -23,4 +23,4 @@ rmempty :: Eq a => [[a]] -> [[a]]
 rmempty = filter (/= [])
 
 elim :: Eq a => a -> [[a]] -> [[a]]
-elim = undefined
+elim x = map $ filter (/= x)
