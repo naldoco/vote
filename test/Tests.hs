@@ -9,6 +9,8 @@ votes :: [Candidate]
 votes = ["Red", "Blue", "Green", "Blue", "Blue", "Red"]
 blue :: Candidate
 blue = "Blue"
+red :: Candidate
+red  = "Red"
 
 -- Alternative vote
 ballots :: [ [Candidate] ]
@@ -24,6 +26,11 @@ ballots_e =  [ ["Green"] ,
              ["Green"] ,
              [] ,
              [] ]
+ballots_wo_red = [ [ "Green"] ,
+                 [ "Blue"] ,
+                 [ "Green", "Blue"] ,
+                 [ "Blue", "Green" ] ,
+                 [ "Green"] ]
 
 voteSuite :: TestTree
 voteSuite =
@@ -48,6 +55,10 @@ voteSuite =
     , testGroup "rmempty"
         [ testCase ("rmempty "++(show ballots_e)++" -> "++(show [["Green"],["Green"]])) $
             (rmempty ballots_e) @?= [["Green"],["Green"]]
+        ]
+    , testGroup "elim"
+        [ testCase ("elim "++(show red)++" "++(show ballots)++" -> "++(show ballots_wo_red)) $
+            (elim red ballots) @?= ballots_wo_red
         ]
     ]
 main = defaultMain voteSuite
