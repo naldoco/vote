@@ -5,8 +5,8 @@ import Data.List
 type Candidate = String
 
 -- First past the post
-winner :: [Candidate] -> Candidate    -- Ord a => [a] -> a
-winner _ = "Blue"
+-- winner :: [Candidate] -> Candidate    -- Ord a => [a] -> a
+-- winner _ = "Blue"
 
 count :: Eq a => a -> [a] -> Int    -- Candidate -> [Candidate] -> Int
 count x = length . filter (== x)
@@ -18,4 +18,5 @@ rmdups (x:xs) = x : (rmdups $ filter (/= x) xs)
 result :: Ord a => [a] -> [(Int, a)]     -- [Candidate] -> [(Int, Candidate)]
 result vs = sort [(count v vs , v) | v <- rmdups vs]
 
-
+winner :: Ord a => [a] -> a    -- [Candidate] -> Candidate
+winner = undefined
