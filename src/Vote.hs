@@ -16,4 +16,6 @@ rmdups []     = []
 rmdups (x:xs) = x : (rmdups $ filter (/= x) xs)
 
 result :: Ord a => [a] -> [(Int, a)]     -- [Candidate] -> [(Int, Candidate)]
-result = undefined
+result vs = sort [(count v vs , v) | v <- rmdups vs]
+
+
